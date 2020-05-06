@@ -1,0 +1,30 @@
+iso8601>=0.1.11 # MIT
+Jinja2>=2.10.1,<3.0.0 # BSD License (3 clause)
+keystoneauth1>=2.18.0,<=3.18.0;python_version<'3.6' # Apache-2.0
+keystoneauth1>=2.18.0;python_version>='3.6' # Apache-2.0
+os-client-config>=1.22.0,<1.31.0 # Apache-2.0
+oslo.concurrency>=3.8.0,<4.0.0;python_version<'3.6' # Apache-2.0
+oslo.concurrency>=3.8.0;python_version>='3.6' # Apache-2.0
+oslo.config!=3.18.0,>=3.14.0,<8.0.0;python_version<'3.6' # Apache-2.0
+oslo.config!=3.18.0,>=3.14.0;python_version>='3.6' # Apache-2.0
+oslo.log>=3.11.0,<4.0.0;python_version<'3.6' # Apache-2.0
+oslo.log>=3.11.0;python_version>='3.6' # Apache-2.0
+oslo.serialization>=1.10.0,<3.0.0;python_version<'3.6' # Apache-2.0
+oslo.serialization>=1.10.0;python_version>='3.6' # Apache-2.0
+oslo.utils>=3.18.0,<4.0.0;python_version<'3.6' # Apache-2.0
+oslo.utils>=3.18.0;python_version>='3.6' # Apache-2.0
+pygal
+pykwalify
+python-glanceclient>=2.5.0,<=3.0.0;python_version<'3.6' # Apache-2.0
+python-glanceclient>=2.5.0;python_version>='3.6' # Apache-2.0
+python-neutronclient>=5.1.0,<8.0.0;python_version<'3.6' # Apache-2.0
+python-neutronclient>=5.1.0;python_version>='3.6' # Apache-2.0
+python-novaclient>=7.1.0,<17.0.0;python_version<'3.6' # Apache-2.0
+python-novaclient>=7.1.0;python_version>='3.6' # Apache-2.0
+python-heatclient>=1.6.1,<2.0.0;python_version<'3.6' # Apache-2.0
+python-heatclient>=1.6.1;python_version>='3.6' # Apache-2.0
+python-subunit>=0.0.18 # Apache-2.0/BSD
+PyYAML>=3.10.0 # MIT
+pyzmq>=16.0 # LGPL+BSD
+six>=1.9.0 # MIT
+timeout-decorator>=0.4.0 # MIT
