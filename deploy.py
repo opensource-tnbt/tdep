@@ -574,7 +574,6 @@ def act():
     for scenario_name in cfg.CONF.scenario:
         LOG.info('Play scenario: %s', scenario_name)
         print('Play scenario: %s', scenario_name)
-        return
 
 
         scenario = read_scenario(scenario_name)
@@ -583,6 +582,7 @@ def act():
         outputs.append(copy.deepcopy(play_output))
 
 def main():
+    print("Welcome")
     utils.init_config_and_logging(
         config.COMMON_OPTS + config.OPENSTACK_OPTS +
         config.SERVER_OPTS
@@ -590,4 +590,5 @@ def main():
     act()
 
 if __name__ == "__main__":
+    print("hello")
     main()

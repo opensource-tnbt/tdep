@@ -58,11 +58,10 @@ def init_config_and_logging(opts, **conf_overrides):
     conf.register_cli_opts(opts)
     conf.register_opts(opts)
     logging.register_options(conf)
-    if conf.CONF.scenario:
-        print(conf.CONF.scenario)
+    if conf.scenario:
+        print(conf.scenario)
     else:
         print('NO WAY')
-    return
 
     for k, v in conf_overrides.items():
         conf.set_override(k, v)
@@ -87,9 +86,13 @@ def init_config_and_logging(opts, **conf_overrides):
 
 
 def resolve_relative_path(file_name):
+    print("Hello" + str(file_name))
+    print(os.path.dirname(__import__('utilities').__file__))
     path = os.path.normpath(os.path.join(
-        os.path.dirname(__import__('testvnf').__file__), '../', file_name))
+        os.path.dirname(__import__('utilities').__file__), '../', file_name))
+    print(path)
     if os.path.exists(path):
+        print("exists")
         return path
 
 

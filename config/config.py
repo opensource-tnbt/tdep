@@ -27,7 +27,8 @@ from utilities import utils
 
 
 DEFAULT_POLLING_INTERVAL = 10
-
+SCENARIOS = 'templates/l2_1c_1i.yaml'
+SCHEMAS = 'templates/'
 
 class Endpoint(types.String):
 
@@ -64,7 +65,7 @@ def generate_output_name():
 COMMON_OPTS = [
     cfg.Opt('server-endpoint',
             default=utils.env('TESTVNF_SERVER_ENDPOINT'),
-            required=True,
+            required=False,
             type=Endpoint(),
             help='Address for server connections (host:port), '
                  'defaults to env[TESTVNF_SERVER_ENDPOINT].'),
@@ -196,7 +197,8 @@ SERVER_AGENT_OPTS = [
 
 SCENARIO_OPTS = [
     cfg.ListOpt('scenario',
-                default=utils.env('SHAKER_SCENARIO'),
+                #default=utils.env('SHAKER_SCENARIO'),
+                default=SCENARIOS,
                 required=True,
                 help=utils.make_help_options(
                     'Comma-separated list of scenarios to play. Each entity '
