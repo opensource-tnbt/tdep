@@ -17,7 +17,9 @@ import collections
 import functools
 import random
 import sys
-
+import os
+import copy
+import json
 import jinja2
 from oslo_config import cfg
 from oslo_log import log as logging
@@ -515,13 +517,13 @@ def _extend_agents(agents_map):
         extended_agents[agent['id']] = extended
     return extended_agents
 
-def play_scenario(message_queue, scenario):
+def play_scenario(scenario):
     deployment = None
     output = dict(scenarios={}, agents={})
     output['scenarios'][scenario['title']] = scenario
 
     try:
-        deployment = deploy.Deployment()
+        deployment = Deployment()
 
         if _under_openstack():
             openstack_params = utils.pack_openstack_params(cfg.CONF)
@@ -578,7 +580,7 @@ def act():
 
         scenario = read_scenario(scenario_name)
 
-        play_output = play_scenario(message_queue, scenario)
+        play_output = play_scenario(scenario)
         outputs.append(copy.deepcopy(play_output))
 
 def main():

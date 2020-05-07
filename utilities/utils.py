@@ -55,11 +55,13 @@ def validate_required_opts(conf, opts):
 
 def init_config_and_logging(opts, **conf_overrides):
     conf = cfg.CONF
-    conf.register_cli_opts(opts)
+    #conf.register_cli_opts(opts)
     conf.register_opts(opts)
+    # conf(['--config-file', 'config/tdep.conf'])
     logging.register_options(conf)
-    if conf.scenario:
-        print(conf.scenario)
+    conf(default_config_files=['config/tdep.conf'])
+    if conf.image_name:
+        print(conf.image_name)
     else:
         print('NO WAY')
 
