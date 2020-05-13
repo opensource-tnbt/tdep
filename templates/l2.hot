@@ -15,9 +15,9 @@ parameters:
   external_net:
     type: string
     description: ID or name of external network
-  server_endpoint:
-    type: string
-    description: Server endpoint address
+#  server_endpoint:
+#    type: string
+#    description: Server endpoint address
   dns_nameservers:
     type: comma_delimited_list
     description: DNS nameservers for the subnet

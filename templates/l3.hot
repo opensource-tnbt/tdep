@@ -14,9 +14,9 @@ parameters:
   external_net:
     type: string
     description: ID or name of external network for which floating IP addresses will be allocated
-  server_endpoint:
-    type: string
-    description: Server endpoint address
+#  server_endpoint:
+#    type: string
+#    description: Server endpoint address
   dns_nameservers:
     type: comma_delimited_list
     description: DNS nameservers for the subnets

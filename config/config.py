@@ -63,12 +63,12 @@ def generate_output_name():
 
 
 COMMON_OPTS = [
-    cfg.Opt('server-endpoint',
-            default=utils.env('TESTVNF_SERVER_ENDPOINT'),
-            required=False,
-            type=Endpoint(),
-            help='Address for server connections (host:port), '
-                 'defaults to env[TESTVNF_SERVER_ENDPOINT].'),
+#    cfg.Opt('server-endpoint',
+#            default=utils.env('TESTVNF_SERVER_ENDPOINT'),
+#            required=False,
+#            type=Endpoint(),
+#            help='Address for server connections (host:port), '
+#                 'defaults to env[TESTVNF_SERVER_ENDPOINT].'),
     cfg.IntOpt('polling-interval',
                default=(utils.env('TESTVNF_POLLING_INTERVAL') or
                         DEFAULT_POLLING_INTERVAL),

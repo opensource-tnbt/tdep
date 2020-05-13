@@ -301,7 +301,8 @@ class Deployment(object):
             return [dict(host=None, zone=zones[n % len(zones)])
                     for n in range(count)]
 
-    def _deploy_from_hot(self, specification, server_endpoint, base_dir=None):
+    #def _deploy_from_hot(self, specification, server_endpoint, base_dir=None):
+    def _deploy_from_hot(self, specification,  base_dir=None):
         accommodation = normalize_accommodation(
             specification.get('accommodation') or
             specification.get('vm_accommodation'))
@@ -323,7 +324,7 @@ class Deployment(object):
         # create stack by Heat
         try:
             merged_parameters = {
-                'server_endpoint': server_endpoint,
+#                'server_endpoint': server_endpoint,
                 'external_net': self.external_net,
                 'image': self.image_name,
                 'flavor': self.flavor_name,
@@ -438,7 +439,8 @@ class Deployment(object):
 
         return environment
 
-    def deploy(self, deployment, base_dir=None, server_endpoint=None):
+    #def deploy(self, deployment, base_dir=None, server_endpoint=None):
+    def deploy(self, deployment, base_dir=None):
         agents = {}
 
         if not deployment:
@@ -454,7 +456,8 @@ class Deployment(object):
             else:
                 # deploy topology specified by HOT
                 agents.update(self._deploy_from_hot(
-                    deployment, server_endpoint, base_dir=base_dir))
+                    #deployment, server_endpoint, base_dir=base_dir))
+                    deployment, base_dir=base_dir))
 
         if deployment.get('agents'):
             # agents are specified statically
@@ -542,11 +545,12 @@ def play_scenario(scenario):
 
         base_dir = os.path.dirname(scenario['file_name'])
         scenario_deployment = scenario.get('deployment', {})
-        server_endpoint = (cfg.CONF.server_endpoint
-                           if 'server_endpoint' in cfg.CONF else None)
+        #server_endpoint = (cfg.CONF.server_endpoint
+        #                   if 'server_endpoint' in cfg.CONF else "10.10.100.100")
 
-        agents = deployment.deploy(scenario_deployment, base_dir=base_dir,
-                                   server_endpoint=server_endpoint)
+        #agents = deployment.deploy(scenario_deployment, base_dir=base_dir,
+        agents = deployment.deploy(scenario_deployment, base_dir=base_dir)
+        #                           server_endpoint=server_endpoint)
 
         agents = _extend_agents(agents)
         output['agents'] = agents
