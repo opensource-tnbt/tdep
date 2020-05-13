@@ -166,6 +166,7 @@ def filter_agents(agents, stack_outputs, override=None):
     # first pass, ignore non-deployed
     for agent in agents.values():
         stack_values = _get_stack_values(stack_outputs, agent['id'], ['ip'])
+        new_stack_values = _get_stack_values(stack_outputs, agent['id'], ['pip'])
 
         if override:
             stack_values.update(override(agent))
@@ -173,8 +174,13 @@ def filter_agents(agents, stack_outputs, override=None):
         if not stack_values.get('ip'):
             LOG.info('Ignore non-deployed agent: %s', agent)
             continue
+        
+        if not new_stack_values.get('ip'):
+            LOG.info('Ignore non-deployed agent: %s', agent)
+            continue
 
         agent.update(stack_values)
+        agent.update(new_stack_values)
 
         # workaround of Nova bug 1422686
         if agent.get('mode') == 'slave' and not agent.get('ip'):
@@ -186,6 +192,9 @@ def filter_agents(agents, stack_outputs, override=None):
     # second pass, check pairs
     result = {}
     for agent in deployed_agents.values():
+        print(agent.get('mode'))
+        print(agent.get('ip'))
+        print(agent.get('pip'))
         if (agent.get('mode') == 'alone' or
                 (agent.get('mode') == 'master' and
                  agent.get('slave_id') in deployed_agents) or
@@ -319,8 +328,8 @@ class Deployment(object):
                                         base_dir=base_dir)
         compiled_template = jinja2.Template(heat_template)
         rendered_template = compiled_template.render(vars_values)
-        LOG.debug('Rendered template: %s', rendered_template)
-
+        LOG.info('Rendered template: %s', rendered_template)
+                
         # create stack by Heat
         try:
             merged_parameters = {
@@ -555,6 +564,7 @@ def play_scenario(scenario):
         agents = _extend_agents(agents)
         output['agents'] = agents
         LOG.debug('Deployed agents: %s', agents)
+        print(agents)
 
         if not agents:
             raise Exception('No agents deployed.')
@@ -566,13 +576,13 @@ def play_scenario(scenario):
         else:
             error_msg = 'Error while executing scenario: %s' % e
             LOG.exception(e)
-    finally:
-        if deployment:
-            try:
-                deployment.cleanup()
-            except Exception as e:
-                LOG.error('Failed to cleanup the deployment: %s', e,
-                          exc_info=True)
+#    finally:
+#        if deployment:
+#            try:
+#                deployment.cleanup()
+#            except Exception as e:
+#                LOG.error('Failed to cleanup the deployment: %s', e,
+#                          exc_info=True)
 
 def act():
     outputs = []
