@@ -152,7 +152,7 @@ OPENSTACK_OPTS = [
                      ' Google Public DNS.'),
 
     cfg.StrOpt('image-name',
-               default=utils.env('TESTVNF_IMAGE') or 'TESTVNF-image',
+               default=utils.env('TESTVNF_IMAGE') or 'testvnf_img',
                help='Name of image to use. The default is created by '
                     'TESTVNF-image-builder.'),
     cfg.StrOpt('flavor-name',
@@ -184,30 +184,30 @@ CLEANUP_OPTS = [
 
 SERVER_AGENT_OPTS = [
     cfg.IntOpt('agent-loss-timeout',
-               default=utils.env('SHAKER_AGENT_LOSS_TIMEOUT') or 60,
+               default=utils.env('TESTVNF_AGENT_LOSS_TIMEOUT') or 60,
                help='Timeout to treat agent as lost in seconds, '
-                    'defaults to env[SHAKER_AGENT_LOSS_TIMEOUT]'),
+                    'defaults to env[TESTVNF_AGENT_LOSS_TIMEOUT]'),
     cfg.IntOpt('agent-join-timeout',
-               default=utils.env('SHAKER_AGENT_JOIN_TIMEOUT') or 600,
+               default=utils.env('TESTVNF_AGENT_JOIN_TIMEOUT') or 600,
                help='Timeout to treat agent as join failed in seconds, '
-                    'defaults to env[SHAKER_AGENT_JOIN_TIMEOUT] (time '
+                    'defaults to env[TESTVNF_AGENT_JOIN_TIMEOUT] (time '
                     'between stack deployment and start of scenario '
                     'execution).'),
 ]
 
 SCENARIO_OPTS = [
     cfg.ListOpt('scenario',
-                #default=utils.env('SHAKER_SCENARIO'),
+                #default=utils.env('TESTVNF_SCENARIO'),
                 default=SCENARIOS,
                 required=True,
                 help=utils.make_help_options(
                     'Comma-separated list of scenarios to play. Each entity '
                     'can be a file name or one of aliases: '
-                    '%s. Defaults to env[SHAKER_SCENARIO].', SCENARIOS,
+                    '%s. Defaults to env[TESTVNF_SCENARIO].', SCENARIOS,
                     type_filter=lambda x: (x.endswith('.yaml') and
                                            not x.startswith('test/')))),
     cfg.Opt('matrix',
-            default=utils.env('SHAKER_MATRIX'),
+            default=utils.env('TESTVNF_MATRIX'),
             type=Yaml(),
             help='Set the matrix of parameters for the scenario. The value '
                  'is specified in YAML format. E.g. to override the scenario '
@@ -216,19 +216,19 @@ SCENARIO_OPTS = [
                  'several parameters are overridden all combinations are '
                  'tested'),
     cfg.StrOpt('output',
-               default=utils.env('SHAKER_OUTPUT') or generate_output_name(),
+               default=utils.env('TESTVNF_OUTPUT') or generate_output_name(),
                sample_default='',
                help='File for output in JSON format, '
-                    'defaults to env[SHAKER_OUTPUT]. If it is empty, then '
+                    'defaults to env[TESTVNF_OUTPUT]. If it is empty, then '
                     'output will be saved to '
-                    '/tmp/shaker_<time_now>.json'),
-    cfg.StrOpt('artifacts-dir', default=utils.env('SHAKER_ARTIFACTS_DIR'),
-               help='If specified, directs Shaker to store there all its '
+                    '/tmp/TESTVNF_<time_now>.json'),
+    cfg.StrOpt('artifacts-dir', default=utils.env('TESTVNF_ARTIFACTS_DIR'),
+               help='If specified, directs TESTVNF to store there all its '
                     'artifacts (output, report, subunit and book). '
-                    'Defaults to env[SHAKER_ARTIFACTS_DIR].'),
+                    'Defaults to env[TESTVNF_ARTIFACTS_DIR].'),
     cfg.BoolOpt('no-report-on-error',
                 deprecated_for_removal=True,
-                default=(utils.env('SHAKER_NO_REPORT_ON_ERROR') or False),
+                default=(utils.env('TESTVNF_NO_REPORT_ON_ERROR') or False),
                 help='Do not generate report for failed scenarios'),
     cfg.ListOpt('scenario-availability-zone',
                 default=utils.env('SCENARIO_AVAILABILITY_ZONE'),
@@ -256,7 +256,7 @@ SCENARIO_OPTS = [
 
 AGENT_OPTS = [
     cfg.StrOpt('agent-id',
-               default=utils.env('SHAKER_AGENT_ID'),
+               default=utils.env('TESTVNF_AGENT_ID'),
                help='Agent unique id, defaults to MAC of primary interface.'),
 ]
 

@@ -55,15 +55,9 @@ def validate_required_opts(conf, opts):
 
 def init_config_and_logging(opts, **conf_overrides):
     conf = cfg.CONF
-    #conf.register_cli_opts(opts)
+    conf.register_cli_opts(opts)
     conf.register_opts(opts)
-    # conf(['--config-file', 'config/tdep.conf'])
     logging.register_options(conf)
-    conf(default_config_files=['config/tdep.conf'])
-    if conf.image_name:
-        print(conf.image_name)
-    else:
-        print('NO WAY')
 
     for k, v in conf_overrides.items():
         conf.set_override(k, v)
@@ -71,7 +65,7 @@ def init_config_and_logging(opts, **conf_overrides):
     # requests to OpenStack services should be visible at DEBUG level
     default_log_levels = [l for l in conf.default_log_levels
                           if not l.startswith('keystoneauth')]
-    default_log_levels += ['pykwalify=INFO']
+    default_log_levels += ['pykwalify=DEBUG']
     logging.set_defaults(default_log_levels=default_log_levels)
 
     try:
@@ -88,7 +82,6 @@ def init_config_and_logging(opts, **conf_overrides):
 
 
 def resolve_relative_path(file_name):
-    print("Hello" + str(file_name))
     print(os.path.dirname(__import__('utilities').__file__))
     path = os.path.normpath(os.path.join(
         os.path.dirname(__import__('utilities').__file__), '../', file_name))

@@ -174,8 +174,8 @@ def filter_agents(agents, stack_outputs, override=None):
         if not stack_values.get('ip'):
             LOG.info('Ignore non-deployed agent: %s', agent)
             continue
-        
-        if not new_stack_values.get('ip'):
+
+        if not new_stack_values.get('pip'):
             LOG.info('Ignore non-deployed agent: %s', agent)
             continue
 
@@ -279,7 +279,7 @@ class Deployment(object):
         if cfg.CONF.stack_name is not None:
             self.stack_name = cfg.CONF.stack_name
         else:
-            self.stack_name = 'shaker_%s' % utils.random_string()
+            self.stack_name = 'testvnf_%s' % utils.random_string()
 
         if cfg.CONF.reuse_stack_name is not None:
             self.stack_name = cfg.CONF.reuse_stack_name
@@ -329,7 +329,7 @@ class Deployment(object):
         compiled_template = jinja2.Template(heat_template)
         rendered_template = compiled_template.render(vars_values)
         LOG.info('Rendered template: %s', rendered_template)
-                
+
         # create stack by Heat
         try:
             merged_parameters = {
@@ -468,6 +468,10 @@ class Deployment(object):
                     #deployment, server_endpoint, base_dir=base_dir))
                     deployment, base_dir=base_dir))
 
+        if not agents:
+            print("No VM Deployed - Deploy")
+            raise Exception('No agents deployed.')
+
         if deployment.get('agents'):
             # agents are specified statically
             agents.update(dict((a['id'], a) for a in deployment.get('agents')))
@@ -561,6 +565,10 @@ def play_scenario(scenario):
         agents = deployment.deploy(scenario_deployment, base_dir=base_dir)
         #                           server_endpoint=server_endpoint)
 
+        if not agents:
+            print("No VM Deployed - Play-Scenario")
+            raise Exception('No agents deployed.')
+
         agents = _extend_agents(agents)
         output['agents'] = agents
         LOG.debug('Deployed agents: %s', agents)
@@ -583,6 +591,7 @@ def play_scenario(scenario):
 #            except Exception as e:
 #                LOG.error('Failed to cleanup the deployment: %s', e,
 #                          exc_info=True)
+    return output
 
 def act():
     outputs = []
@@ -595,15 +604,20 @@ def act():
         scenario = read_scenario(scenario_name)
 
         play_output = play_scenario(scenario)
+        print(play_output)
         outputs.append(copy.deepcopy(play_output))
 
 def main():
-    print("Welcome")
     utils.init_config_and_logging(
         config.COMMON_OPTS + config.OPENSTACK_OPTS +
         config.SERVER_OPTS
     )
-    act()
+    print(cfg.CONF.image_name)
+    print(cfg.CONF.flavor_name)
+    print(cfg.CONF.external_net)
+    print(cfg.CONF.dns_nameservers)
+    print(cfg.CONF.scenario)
+    # act()
 
 if __name__ == "__main__":
     print("hello")
