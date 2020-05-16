@@ -617,7 +617,7 @@ def main():
     print(cfg.CONF.external_net)
     print(cfg.CONF.dns_nameservers)
     print(cfg.CONF.scenario)
-    # act()
+    act()
 
 if __name__ == "__main__":
     print("hello")

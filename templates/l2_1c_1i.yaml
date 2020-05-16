@@ -7,4 +7,4 @@ description:
 
 deployment:
   template: l2pub.hot
-  accommodation: [pair, single_room, compute_nodes: 2]
+  accommodation: [single_room, compute_nodes: 1]
