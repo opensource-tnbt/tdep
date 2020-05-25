@@ -594,8 +594,7 @@ def play_scenario(scenario):
     return output
 
 def act():
-    outputs = []
-
+    # outputs = []
     for scenario_name in cfg.CONF.scenario:
         LOG.info('Play scenario: %s', scenario_name)
         print('Play scenario: %s', scenario_name)
@@ -605,9 +604,16 @@ def act():
 
         play_output = play_scenario(scenario)
         print(play_output)
-        outputs.append(copy.deepcopy(play_output))
+        return play_output
+#        outputs.append(copy.deepcopy(play_output))
+
+def create_vsperf_conffile(output, tgen):
+    filename = 'vsperf-'+ tgen + '.conf'
+    filepath = os.path.join('./testconfs', filename)
+    print('Using File: ', filepath)
 
 def main():
+    output = collections.defaultdict()
     utils.init_config_and_logging(
         config.COMMON_OPTS + config.OPENSTACK_OPTS +
         config.SERVER_OPTS
@@ -617,7 +623,8 @@ def main():
     print(cfg.CONF.external_net)
     print(cfg.CONF.dns_nameservers)
     print(cfg.CONF.scenario)
-    act()
+    #output = act()
+    create_vsperf_conffile(output, cfg.CONF.trafficgen)
 
 if __name__ == "__main__":
     print("hello")
