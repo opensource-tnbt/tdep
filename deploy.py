@@ -180,7 +180,7 @@ def filter_agents(agents, stack_outputs, override=None):
             LOG.info('Ignore non-deployed agent: %s', agent)
             continue
 
-        if not new_stack_values.get('dmac'):
+        if not mac_values.get('dmac'):
             LOG.info('Ignore non-deployed agent: %s', agent)
             continue
 
@@ -633,7 +633,8 @@ def create_vsperf_conffile(output, tgen):
                         east_ip)
             filep.write("TRAFFICGEN_STC_WEST_CHASSIS_ADDR = " +
                         west_ip)
-        else if tgetn == 'ixnet':
+        elif tgetn == 'ixnet':
+            print("Ehllo")
 
 
 

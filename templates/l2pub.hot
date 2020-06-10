@@ -92,7 +92,7 @@ resources:
       networks:
         - port: { get_resource: {{ agent.id }}_port }
         - port: { get_resource: {{ agent.id }}_mgmt_port }
-      user_data: {get_param: user_config}
+      user_data: {get_resource: user_config}
       user_data_format: RAW
 
   {{ agent.id }}_port:
