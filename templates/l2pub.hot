@@ -96,8 +96,11 @@ outputs:
   {{ agent.id }}_instance_name:
     value: { get_attr: [ {{ agent.id }}, instance_name ] }
   {{ agent.id }}_ip:
-    value: { get_attr: [ {{ agent.id }}, networks, { get_attr: [private_net, name] }, 0 ] }
+    value: { get_attr: [ {{ agent.id }}_port, fixed_ips, 0, ip_address ] }
+#    value: { get_attr: [ {{ agent.id }}, networks, { get_attr: [private_net, name] }, 0 ] }
   {{ agent.id }}_pip:
     value: { get_attr: [ {{ agent.id }}_mgmt_port, fixed_ips, 0, ip_address ] }
+  {{ agent.id }}_dmac:
+    value: { get_attr: [ {{ agent.id }}_port, mac_address ] }
   
 {% endfor %}

@@ -307,4 +307,263 @@ exists
 2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] schema_data: {} __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:50
 2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] extension files: [] __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:51
 2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] No source file loaded, trying source data variable __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:106
-2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] No s
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] No schema file loaded, trying schema data variable __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:109
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] loading all extensions : [] _load_extensions /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:134
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] [] _load_extensions /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:147
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] [] _load_extensions /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:148
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-] Core validate _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:207
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-]  Root validate : Rule: Rule: {'enum': ['pair', 'alone', 'double_room', 'single_room', 'mixed_room', 'cross_az', 'best_effort'], 'type': 'str'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:208
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-]  Root validate : Rule_type: str _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:209
+2020-05-25 09:53:57.830 149564 DEBUG pykwalify.core [-]  Root validate : Seq: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:210
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  Root validate : Map: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:211
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  Root validate : Done: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:212
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  ? ValidateRule: Rule: {'enum': ['pair', 'alone', 'double_room', 'single_room', 'mixed_room', 'cross_az', 'best_effort'], 'type': 'str'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:230
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-] Validate scalar _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:618
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  Scalar : Value : {'compute_nodes': 2} _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:619
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  Scalar : Rule :  Rule: {'enum': ['pair', 'alone', 'double_room', 'single_room', 'mixed_room', 'cross_az', 'best_effort'], 'type': 'str'} _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:620
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  Scalar : RuleType : str _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:621
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  Scalar : Path /deployment/accommodation/2 _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:622
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  # Core scalar: validating scalar type : str _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:963
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-]  # Core scalar: scalar type: <class 'dict'> _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:964
+2020-05-25 09:53:57.831 149564 DEBUG pykwalify.core [-] source_file: None __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:47
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] schema_file: [] __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:48
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] source_data: {} __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:49
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] schema_data: {} __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:50
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] extension files: [] __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:51
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] No source file loaded, trying source data variable __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:106
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] No schema file loaded, trying schema data variable __init__ /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:109
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] loading all extensions : [] _load_extensions /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:134
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] [] _load_extensions /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:147
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] [] _load_extensions /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:148
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-] Core validate _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:207
+2020-05-25 09:53:57.832 149564 DEBUG pykwalify.core [-]  Root validate : Rule: Rule: {'mapping': {'compute_nodes': {'type': 'number'}, 'density': {'type': 'number'}, 'zones': {'sequence': [{'type': 'str'}], 'type': 'seq'}}, 'type': 'map'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:208
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Root validate : Rule_type: map _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:209
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Root validate : Seq: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:210
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Root validate : Map: {'compute_nodes': <pykwalify.rule.Rule object at 0x7f922f1c52e8>, 'density': <pykwalify.rule.Rule object at 0x7f922f1c50f0>, 'zones': <pykwalify.rule.Rule object at 0x7f922f1c5390>} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:211
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Root validate : Done: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:212
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  ? ValidateRule: Rule: {'mapping': {'compute_nodes': {'type': 'number'}, 'density': {'type': 'number'}, 'zones': {'sequence': [{'type': 'str'}], 'type': 'seq'}}, 'type': 'map'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:230
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-] Validate mapping _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:475
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Mapping : Data: {'compute_nodes': 2} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:476
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Mapping : Rule: Rule: {'mapping': {'compute_nodes': {'type': 'number'}, 'density': {'type': 'number'}, 'zones': {'sequence': [{'type': 'str'}], 'type': 'seq'}}, 'type': 'map'} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:477
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Mapping : RuleType: map _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:478
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Mapping : Path: /deployment/accommodation/2 _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:479
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Mapping : Seq: None _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:480
+2020-05-25 09:53:57.833 149564 DEBUG pykwalify.core [-]  Mapping : Map: {'compute_nodes': <pykwalify.rule.Rule object at 0x7f922f1c52e8>, 'density': <pykwalify.rule.Rule object at 0x7f922f1c50f0>, 'zones': <pykwalify.rule.Rule object at 0x7f922f1c5390>} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:481
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]    Mapping: Rule-Mapping: {'compute_nodes': <pykwalify.rule.Rule object at 0x7f922f1c52e8>, 'density': <pykwalify.rule.Rule object at 0x7f922f1c50f0>, 'zones': <pykwalify.rule.Rule object at 0x7f922f1c5390>} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:499
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]   Mapping-value : {'compute_nodes': <pykwalify.rule.Rule object at 0x7f922f1c52e8>, 'density': <pykwalify.rule.Rule object at 0x7f922f1c50f0>, 'zones': <pykwalify.rule.Rule object at 0x7f922f1c5390>} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:560
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]   Mapping-value : compute_nodes 2 _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:561
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]   Mapping-value : Rule: {'type': 'number'} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:562
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]   Mapping-value: Mapping Regex matches: [] _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:565
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]   Mapping-value: Core Map: validate recursively: Rule: {'type': 'number'} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:569
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-] Core validate _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:207
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]  Root validate : Rule: Rule: {'type': 'number'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:208
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]  Root validate : Rule_type: number _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:209
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]  Root validate : Seq: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:210
+2020-05-25 09:53:57.834 149564 DEBUG pykwalify.core [-]  Root validate : Map: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:211
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  Root validate : Done: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:212
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  ? ValidateRule: Rule: {'type': 'number'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:230
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-] Validate scalar _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:618
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  Scalar : Value : 2 _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:619
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  Scalar : Rule :  Rule: {'type': 'number'} _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:620
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  Scalar : RuleType : number _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:621
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  Scalar : Path /deployment/accommodation/2/compute_nodes _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:622
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  # Core scalar: validating scalar type : number _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:963
+2020-05-25 09:53:57.835 149564 DEBUG pykwalify.core [-]  # Core scalar: scalar type: <class 'int'> _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:964
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Found map inside sequence _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:360
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Key: compute_nodes _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:368
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Rule: Rule: {'type': 'number'} _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:369
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Key: density _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:368
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Rule: Rule: {'type': 'number'} _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:369
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Key: zones _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:368
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Rule: Rule: {'sequence': [{'type': 'str'}], 'type': 'seq'} _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:369
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * any rule True _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:425
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * ok : [True, True, True] _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:440
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]  * Core seq: validation recursivley done... _validate_sequence /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:457
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]   Mapping-value : {'deployment': <pykwalify.rule.Rule object at 0x7f9234dea828>, 'title': <pykwalify.rule.Rule object at 0x7f922f1c57f0>, 'description': <pykwalify.rule.Rule object at 0x7f922f1c54e0>} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:560
+2020-05-25 09:53:57.836 149564 DEBUG pykwalify.core [-]   Mapping-value : title OpenStack L2 Performance _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:561
+2020-05-25 09:53:57.837 149564 DEBUG pykwalify.core [-]   Mapping-value : Rule: {'type': 'str'} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:562
+2020-05-25 09:53:57.837 149564 DEBUG pykwalify.core [-]   Mapping-value: Mapping Regex matches: [] _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:565
+2020-05-25 09:53:57.837 149564 DEBUG pykwalify.core [-]   Mapping-value: Core Map: validate recursively: Rule: {'type': 'str'} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:569
+2020-05-25 09:53:58.613 149564 DEBUG pykwalify.core [-] Core validate _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:207
+2020-05-25 09:53:58.614 149564 DEBUG pykwalify.core [-]  Root validate : Rule: Rule: {'type': 'str'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:208
+2020-05-25 09:53:58.614 149564 DEBUG pykwalify.core [-]  Root validate : Rule_type: str _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:209
+2020-05-25 09:53:58.614 149564 DEBUG pykwalify.core [-]  Root validate : Seq: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:210
+2020-05-25 09:53:58.614 149564 DEBUG pykwalify.core [-]  Root validate : Map: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:211
+2020-05-25 09:53:58.614 149564 DEBUG pykwalify.core [-]  Root validate : Done: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:212
+2020-05-25 09:53:58.615 149564 DEBUG pykwalify.core [-]  ? ValidateRule: Rule: {'type': 'str'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:230
+2020-05-25 09:53:58.615 149564 DEBUG pykwalify.core [-] Validate scalar _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:618
+2020-05-25 09:53:58.615 149564 DEBUG pykwalify.core [-]  Scalar : Value : OpenStack L2 Performance _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:619
+2020-05-25 09:53:58.615 149564 DEBUG pykwalify.core [-]  Scalar : Rule :  Rule: {'type': 'str'} _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:620
+2020-05-25 09:53:58.616 149564 DEBUG pykwalify.core [-]  Scalar : RuleType : str _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:621
+2020-05-25 09:53:58.616 149564 DEBUG pykwalify.core [-]  Scalar : Path /title _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:622
+2020-05-25 09:53:58.616 149564 DEBUG pykwalify.core [-]  # Core scalar: validating scalar type : str _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:963
+2020-05-25 09:53:58.616 149564 DEBUG pykwalify.core [-]  # Core scalar: scalar type: <class 'str'> _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:964
+2020-05-25 09:53:58.617 149564 DEBUG pykwalify.core [-]   Mapping-value : {'deployment': <pykwalify.rule.Rule object at 0x7f9234dea828>, 'title': <pykwalify.rule.Rule object at 0x7f922f1c57f0>, 'description': <pykwalify.rule.Rule object at 0x7f922f1c54e0>} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:560
+2020-05-25 09:53:58.617 149564 DEBUG pykwalify.core [-]   Mapping-value : description In this scenario tdep launches 1 pair of instances in the same tenant network. Each instance is hosted on a separate compute node. The traffic goes within the tenant network (L2 domain). _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:561
+2020-05-25 09:53:58.617 149564 DEBUG pykwalify.core [-]   Mapping-value : Rule: {'type': 'str'} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:562
+2020-05-25 09:53:58.617 149564 DEBUG pykwalify.core [-]   Mapping-value: Mapping Regex matches: [] _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:565
+2020-05-25 09:53:58.617 149564 DEBUG pykwalify.core [-]   Mapping-value: Core Map: validate recursively: Rule: {'type': 'str'} _validate_mapping /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:569
+2020-05-25 09:53:58.618 149564 DEBUG pykwalify.core [-] Core validate _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:207
+2020-05-25 09:53:58.618 149564 DEBUG pykwalify.core [-]  Root validate : Rule: Rule: {'type': 'str'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:208
+2020-05-25 09:53:58.618 149564 DEBUG pykwalify.core [-]  Root validate : Rule_type: str _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:209
+2020-05-25 09:53:58.618 149564 DEBUG pykwalify.core [-]  Root validate : Seq: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:210
+2020-05-25 09:53:58.619 149564 DEBUG pykwalify.core [-]  Root validate : Map: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:211
+2020-05-25 09:53:58.619 149564 DEBUG pykwalify.core [-]  Root validate : Done: None _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:212
+2020-05-25 09:53:58.619 149564 DEBUG pykwalify.core [-]  ? ValidateRule: Rule: {'type': 'str'} _validate /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:230
+2020-05-25 09:53:58.619 149564 DEBUG pykwalify.core [-] Validate scalar _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:618
+2020-05-25 09:53:58.619 149564 DEBUG pykwalify.core [-]  Scalar : Value : In this scenario tdep launches 1 pair of instances in the same tenant network. Each instance is hosted on a separate compute node. The traffic goes within the tenant network (L2 domain). _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:619
+2020-05-25 09:53:58.620 149564 DEBUG pykwalify.core [-]  Scalar : Rule :  Rule: {'type': 'str'} _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:620
+2020-05-25 09:53:58.620 149564 DEBUG pykwalify.core [-]  Scalar : RuleType : str _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:621
+2020-05-25 09:53:58.620 149564 DEBUG pykwalify.core [-]  Scalar : Path /description _validate_scalar /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:622
+2020-05-25 09:53:58.620 149564 DEBUG pykwalify.core [-]  # Core scalar: validating scalar type : str _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:963
+2020-05-25 09:53:58.621 149564 DEBUG pykwalify.core [-]  # Core scalar: scalar type: <class 'str'> _validate_scalar_type /home/opnfv/ops/tdep/tdepenv/lib/python3.5/site-packages/pykwalify/core.py:964
+2020-05-25 09:53:58.621 149564 INFO pykwalify.core [-] validation.valid
+2020-05-25 09:53:59.171 149564 INFO osclients.openstack [-] Connection to OpenStack is initialized
+2020-05-25 09:53:59.471 149564 INFO __main__ [-] Rendered template: heat_template_version: 2013-05-23
+
+description:
+  This Heat template creates a new Neutron network, a router to the external
+  network and plugs instances into this new network. All instances are located
+  in the same L2 domain.
+
+parameters:
+  image:
+    type: string
+    description: Name of image to use for servers
+  flavor:
+    type: string
+    description: Flavor to use for servers
+  external_net:
+    type: string
+    description: ID or name of external network
+#  server_endpoint:
+#    type: string
+#    description: Server endpoint address
+  dns_nameservers:
+    type: comma_delimited_list
+    description: DNS nameservers for the subnet
+
+resources:
+  private_net:
+    type: OS::Neutron::Net
+    properties:
+      name: testvnf_emtkia_net
+
+  private_subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      network_id: { get_resource: private_net }
+      cidr: 10.0.0.0/16
+      dns_nameservers: { get_param: dns_nameservers }
+
+  router:
+    type: OS::Neutron::Router
+    properties:
+      external_gateway_info:
+        network: { get_param: external_net }
+
+  router_interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router_id: { get_resource: router }
+      subnet_id: { get_resource: private_subnet }
+
+  server_security_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      rules: [
+        {remote_ip_prefix: 0.0.0.0/0,
+        protocol: tcp,
+        port_range_min: 1,
+        port_range_max: 65535},
+        {remote_ip_prefix: 0.0.0.0/0,
+        protocol: udp,
+        port_range_min: 1,
+        port_range_max: 65535},
+        {remote_ip_prefix: 0.0.0.0/0,
+        protocol: icmp}]
+
+
+
+  testvnf_emtkia_slave_0:
+    type: OS::Nova::Server
+    properties:
+      name: testvnf_emtkia_slave_0
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      availability_zone: "nova:pod10-node4"
+      networks:
+        - port: { get_resource: testvnf_emtkia_slave_0_port }
+        - port: { get_resource: testvnf_emtkia_slave_0_mgmt_port }
+
+  testvnf_emtkia_slave_0_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_resource: private_net }
+      fixed_ips:
+        - subnet_id: { get_resource: private_subnet }
+      security_groups: [{ get_resource: server_security_group }]
+
+  testvnf_emtkia_slave_0_mgmt_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_param: external_net }
+      security_groups: [{ get_resource: server_security_group }]
+
+
+
+  testvnf_emtkia_master_0:
+    type: OS::Nova::Server
+    properties:
+      name: testvnf_emtkia_master_0
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      availability_zone: "nova:pod10-node5"
+      networks:
+        - port: { get_resource: testvnf_emtkia_master_0_port }
+        - port: { get_resource: testvnf_emtkia_master_0_mgmt_port }
+
+  testvnf_emtkia_master_0_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_resource: private_net }
+      fixed_ips:
+        - subnet_id: { get_resource: private_subnet }
+      security_groups: [{ get_resource: server_security_group }]
+
+  testvnf_emtkia_master_0_mgmt_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_param: external_net }
+      security_groups: [{ get_resource: server_security_group }]
+
+
+
+outputs:
+
+  testvnf_emtkia_slave_0_instance_name:
+    value: { get_attr: [ testvnf_emtkia_slave_0, instance_name ] }
+  testvnf_emtkia_slave_0_ip:
+    value: { get_attr: [ testvnf_emtkia_slave_0, networks, { get_attr: [private_net, name] }, 0 ] }
+  testvnf_emtkia_slave_0_pip:
+    value: { get_attr: [ testvnf_emtkia_slave_0_mgmt_port, fixed_ips, 0, ip_address ] }
+
+
+  testvnf_emtkia_master_0_instance_name:
+    value: { get_attr: [ testvnf_emtkia_master_0, instance_name ] }
+  testvnf_emtkia_master_0_ip:
+    value: { get_attr: [ testvnf_emtkia_master_0, networks, { get_attr: [private_net, name] }, 0 ] }
+  testvnf_emtkia_master_0_pip:
+    value: { get_attr: [ testvnf_emtkia_master_0_mgmt_port, fixed_ips, 0, ip_address ] }
+
+
+2020-05-25 09:54:01.377 149564 INFO osclients.heat [-] New stack: {'id': '205d2132-2a6e-4fdb-b72b-937e9d5efbea', 'links': [{'href': 'http://orchestration-airship.intel-pod10.opnfv.org/v1/d370dcdc55c74337a22dcb4127565437/stacks/testvnf_emtkia/205d2132-2a6e-4fdb-b72b-937e9d5efbea', 'rel': 'self'}]}
+
+master
+10.0.0.16
+10.10.105.51
+slave
+10.0.0.6
+10.10.105.34
+{'testvnf_emtkia_slave_0': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'master': {'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5', 'pip': '10.10.105.51', 'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}, 'zone': 'nova', 'node': 'pod10-node4', 'pip': '10.10.105.34', 'id': 'testvnf_emtkia_slave_0', 'ip': '10.0.0.6', 'master_id': 'testvnf_emtkia_master_0'}, 'testvnf_emtkia_master_0': {'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5', 'pip': '10.10.105.51', 'slave': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'zone': 'nova', 'node': 'pod10-node4', 'pip': '10.10.105.34', 'id': 'testvnf_emtkia_slave_0', 'ip': '10.0.0.6', 'master_id': 'testvnf_emtkia_master_0'}, 'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}}
+{'agents': {'testvnf_emtkia_slave_0': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'master': {'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5', 'pip': '10.10.105.51', 'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}, 'zone': 'nova', 'node': 'pod10-node4', 'pip': '10.10.105.34', 'id': 'testvnf_emtkia_slave_0', 'ip': '10.0.0.6', 'master_id': 'testvnf_emtkia_master_0'}, 'testvnf_emtkia_master_0': {'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5', 'pip': '10.10.105.51', 'slave': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'zone': 'nova', 'node': 'pod10-node4', 'pip': '10.10.105.34', 'id': 'testvnf_emtkia_slave_0', 'ip': '10.0.0.6', 'master_id': 'testvnf_emtkia_master_0'}, 'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}}, 'scenarios': {'OpenStack L2 Performance': {'file_name': 'templates/l2_2c_2i.yaml', 'deployment': {'template': 'l2pub.hot', 'accommodation': ['pair', 'single_room', {'compute_nodes': 2}]}, 'title': 'OpenStack L2 Performance', 'description': 'In this scenario tdep launches 1 pair of instances in the same tenant network. Each instance is hosted on a separate compute node. The traffic goes within the tenant network (L2 domain).'}}}

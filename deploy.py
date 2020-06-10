@@ -167,6 +167,7 @@ def filter_agents(agents, stack_outputs, override=None):
     for agent in agents.values():
         stack_values = _get_stack_values(stack_outputs, agent['id'], ['ip'])
         new_stack_values = _get_stack_values(stack_outputs, agent['id'], ['pip'])
+        mac_values = _get_stack_values(stack_outputs, agent['id'], ['dmac'])
 
         if override:
             stack_values.update(override(agent))
@@ -176,6 +177,10 @@ def filter_agents(agents, stack_outputs, override=None):
             continue
 
         if not new_stack_values.get('pip'):
+            LOG.info('Ignore non-deployed agent: %s', agent)
+            continue
+
+        if not new_stack_values.get('dmac'):
             LOG.info('Ignore non-deployed agent: %s', agent)
             continue
 
@@ -195,6 +200,7 @@ def filter_agents(agents, stack_outputs, override=None):
         print(agent.get('mode'))
         print(agent.get('ip'))
         print(agent.get('pip'))
+        print(agent.get('dmac'))
         if (agent.get('mode') == 'alone' or
                 (agent.get('mode') == 'master' and
                  agent.get('slave_id') in deployed_agents) or
@@ -610,7 +616,26 @@ def act():
 def create_vsperf_conffile(output, tgen):
     filename = 'vsperf-'+ tgen + '.conf'
     filepath = os.path.join('./testconfs', filename)
+    east_ip = ''
+    west_ip = ''
     print('Using File: ', filepath)
+    for k,v, in output['agents'].items():
+        if 'slave' in k:
+            east_ip = output['agents'][k]['pip']
+        if 'master' in k:
+            west_ip = output['agents'][k]['pip']
+    print(east_ip)
+    print(west_ip)
+
+    with open(filepath, "+a") as filep:
+        if tgen == "spirent":
+            filep.write("TRAFFICGEN_STC_EAST_CHASSIS_ADDR = " +
+                        east_ip)
+            filep.write("TRAFFICGEN_STC_WEST_CHASSIS_ADDR = " +
+                        west_ip)
+        else if tgetn == 'ixnet':
+
+
 
 def main():
     output = collections.defaultdict()
@@ -623,8 +648,19 @@ def main():
     print(cfg.CONF.external_net)
     print(cfg.CONF.dns_nameservers)
     print(cfg.CONF.scenario)
-    #output = act()
-    create_vsperf_conffile(output, cfg.CONF.trafficgen)
+    output = act()
+    print(output)
+    #output = {'agents': {'testvnf_emtkia_slave_0': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'master': {
+    #    'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5',
+    #    'pip': '10.10.105.51', 'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}, 'zone': 'nova', 'node': 'pod10-node4', 'pip': '10.10.105.34',
+    #    'id': 'testvnf_emtkia_slave_0', 'ip': '10.0.0.6', 'master_id': 'testvnf_emtkia_master_0'}, 'testvnf_emtkia_master_0': {
+    #        'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5',
+    #        'pip': '10.10.105.51', 'slave': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'zone': 'nova', 'node': 'pod10-node4',
+    #                                         'pip': '10.10.105.34', 'id': 'testvnf_emtkia_slave_0', 'ip': '10.0.0.6', 'master_id': 'testvnf_emtkia_master_0'},
+    #        'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}}, 'scenarios': {'OpenStack L2 Performance': {'file_name':'templates/l2_2c_2i.yaml', 'deployment': {
+    #            'template': 'l2pub.hot', 'accommodation': ['pair', 'single_room', {'compute_nodes': 2}]},
+    #            'title': 'OpenStack L2 Performance', 'description': 'In this scenario tdep launches 1 pair of instances in the same tenant network. Each instance is hosted on a separate compute node. The traffic goes within the tenant network (L2 domain).'}}}
+    #create_vsperf_conffile(output, cfg.CONF.trafficgen)
 
 if __name__ == "__main__":
     print("hello")
