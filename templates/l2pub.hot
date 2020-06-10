@@ -47,6 +47,24 @@ resources:
       router_id: { get_resource: router }
       subnet_id: { get_resource: private_subnet }
 
+  user_config:
+    type: OS::Heat::CloudConfig
+    properties:
+      cloud_config:
+        users:
+        - default
+        - name: test
+          groups: "users,root"
+          lock-passwd: false
+          passwd: 'test'
+          shell: "/bin/bash"
+          sudo: "ALL=(ALL) NOPASSWD:ALL"
+        ssh_pwauth: true
+        chpasswd:
+          list:  |
+              test:test
+          expire: False
+
   server_security_group:
     type: OS::Neutron::SecurityGroup
     properties:
@@ -74,6 +92,8 @@ resources:
       networks:
         - port: { get_resource: {{ agent.id }}_port }
         - port: { get_resource: {{ agent.id }}_mgmt_port }
+      user_data: {get_param: user_config}
+      user_data_format: RAW
 
   {{ agent.id }}_port:
     type: OS::Neutron::Port
