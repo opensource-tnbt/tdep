@@ -6,5 +6,5 @@ description:
   within the tenant network (L2 domain).
 
 deployment:
-  template: l2pub.hot
+  template: l2.hot
   accommodation: [single_room, compute_nodes: 1]
