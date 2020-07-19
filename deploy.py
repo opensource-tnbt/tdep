@@ -613,26 +613,27 @@ def act():
         return play_output
 #        outputs.append(copy.deepcopy(play_output))
 
-def create_vsperf_conffile(output, tgen):
+def create_vsperf_conffile(agents, tgen):
+    if not len(agents):
+        print("No agents provided")
+        return
     filename = 'vsperf-'+ tgen + '.conf'
     filepath = os.path.join('./testconfs', filename)
-    east_ip = ''
-    west_ip = ''
     print('Using File: ', filepath)
-    for k,v, in output['agents'].items():
-        if 'slave' in k:
-            east_ip = output['agents'][k]['pip']
-        if 'master' in k:
-            west_ip = output['agents'][k]['pip']
-    print(east_ip)
-    print(west_ip)
-
+    east_chassis_ip = agents[0]['public_ip']
+    east_data_ip = agents[0]['private_ip']
+    if len(agents) == 2:
+        west_chassis_ip = agents[1]['public_ip']
+        west_data_ip = agents[1]['private_ip']
+    else:
+        west_chassis_ip = east_chassis_ip
+        west_data_ip = east_chassis_ip
     with open(filepath, "+a") as filep:
         if tgen == "spirent":
             filep.write("TRAFFICGEN_STC_EAST_CHASSIS_ADDR = " +
-                        east_ip)
+                        east_chassis_ip)
             filep.write("TRAFFICGEN_STC_WEST_CHASSIS_ADDR = " +
-                        west_ip)
+                        west_chassis_ip)
         elif tgetn == 'ixnet':
             print("Ehllo")
 
@@ -650,7 +651,7 @@ def main():
     print(cfg.CONF.dns_nameservers)
     print(cfg.CONF.scenario)
     output = act()
-    print(output)
+    list_of_agents = []
     #output = {'agents': {'testvnf_emtkia_slave_0': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'master': {
     #    'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5',
     #    'pip': '10.10.105.51', 'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}, 'zone': 'nova', 'node': 'pod10-node4', 'pip': '10.10.105.34',
@@ -661,6 +662,15 @@ def main():
     #        'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}}, 'scenarios': {'OpenStack L2 Performance': {'file_name':'templates/l2_2c_2i.yaml', 'deployment': {
     #            'template': 'l2pub.hot', 'accommodation': ['pair', 'single_room', {'compute_nodes': 2}]},
     #            'title': 'OpenStack L2 Performance', 'description': 'In this scenario tdep launches 1 pair of instances in the same tenant network. Each instance is hosted on a separate compute node. The traffic goes within the tenant network (L2 domain).'}}}
+    for count in range (len(output['agents'])):
+        ag_dict = collections.defaultdict()
+        name = str(list(output['agents'].keys())[count])
+        private_ip = output['agents'][name]['ip']
+        public_ip = output['agents'][name]['pip']
+        node = output['agents'][name]['node']
+        list_of_agents.append({'name': name, 'private_ip': private_ip, 'public_ip': public_ip, 'compute_node': node})
+    print(list_of_agents)
+
     #create_vsperf_conffile(output, cfg.CONF.trafficgen)
 
 if __name__ == "__main__":
