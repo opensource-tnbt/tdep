@@ -1,4 +1,4 @@
-export OS_AUTH_URL=http://identity-airship.intel-pod15.opnfv.org/v3
+export OS_AUTH_URL=http://identity-airship.intel-pod10.opnfv.org/v3
 export OS_USER_DOMAIN_NAME=default
 export OS_PROJECT_DOMAIN_NAME=default
 export OS_USERNAME=admin
@@ -6,4 +6,4 @@ export OS_PROJECT_NAME=admin
 export OS_PASSWORD=password123
 export OS_IDENTITY_API_VERSION=3
 export OS_INTERFACE=public
-export OS_REGION_NAME=intel-pod15
+export OS_REGION_NAME=intel-pod10

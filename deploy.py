@@ -21,6 +21,10 @@ import os
 import copy
 import json
 import jinja2
+import shutil
+import datetime
+import time 
+
 from oslo_config import cfg
 from oslo_log import log as logging
 
@@ -60,6 +64,7 @@ def prepare_for_cross_az(compute_nodes, zones):
 
 
 def generate_agents(compute_nodes, accommodation, unique):
+    print(compute_nodes)
     density = accommodation.get('density') or 1
 
     zones = accommodation.get('zones')
@@ -75,6 +80,7 @@ def generate_agents(compute_nodes, accommodation, unique):
     compute_nodes_requested = accommodation.get('compute_nodes')
     if compute_nodes_requested:
         if compute_nodes_requested > len(compute_nodes):
+            print(str(len(compute_nodes)))
             if best_effort:
                 LOG.warn('Allowing best_effort accommodation: '
                          'compute nodes requested: %(req)d: '
@@ -554,8 +560,8 @@ def play_scenario(scenario):
                     openstack_params, cfg.CONF.flavor_name,
                     cfg.CONF.image_name, cfg.CONF.external_net,
                     cfg.CONF.dns_nameservers)
-            except openstack_clients.OpenStackClientException:
-                raise
+#            except .OpenStackClientException:
+#                raise
             except Exception as e:
                 LOG.warning('Failed to connect to OpenStack: %s. Please '
                             'verify parameters: %s', e, openstack_params)
@@ -614,12 +620,18 @@ def act():
 #        outputs.append(copy.deepcopy(play_output))
 
 def create_vsperf_conffile(agents, tgen):
+        # define the timestamp
+    date = datetime.datetime.fromtimestamp(time.time())
+    timestamp = date.strftime('%Y-%m-%d_%H-%M-%S')
     if not len(agents):
         print("No agents provided")
         return
     filename = 'vsperf-'+ tgen + '.conf'
     filepath = os.path.join('./testconfs', filename)
-    print('Using File: ', filepath)
+    destfilename = 'vsperf-' + tgen + "-" + timestamp + ".conf"
+    destfilepath = os.path.join('./testconfs', destfilename)
+    shutil.copyfile(filepath, destfilepath) 
+    print('Using File: ', destfilepath)
     east_chassis_ip = agents[0]['public_ip']
     east_data_ip = agents[0]['private_ip']
     if len(agents) == 2:
@@ -628,16 +640,16 @@ def create_vsperf_conffile(agents, tgen):
     else:
         west_chassis_ip = east_chassis_ip
         west_data_ip = east_chassis_ip
-    with open(filepath, "+a") as filep:
+    with open(destfilepath, "+a") as filep:
         if tgen == "spirent":
-            filep.write("TRAFFICGEN_STC_EAST_CHASSIS_ADDR = " +
-                        east_chassis_ip)
-            filep.write("TRAFFICGEN_STC_WEST_CHASSIS_ADDR = " +
-                        west_chassis_ip)
-        elif tgetn == 'ixnet':
-            print("Ehllo")
-
-
+            filep.write('TRAFFICGEN_STC_EAST_CHASSIS_ADDR = "{0}" \n'.format(east_chassis_ip))
+            filep.write('TRAFFICGEN_STC_WEST_CHASSIS_ADDR = "{0}" \n'.format(west_chassis_ip))
+        if tgen == "ixnet":
+            filep.writelines("TRAFFICGEN_EAST_IXIA_HOST = " +
+                        east_chassis_ip + '\n')
+            filep.writelines("TRAFFICGEN_WEST_IXIA_HOST = " +
+                        west_chassis_ip + '\n')
+        
 
 def main():
     output = collections.defaultdict()
@@ -650,8 +662,10 @@ def main():
     print(cfg.CONF.external_net)
     print(cfg.CONF.dns_nameservers)
     print(cfg.CONF.scenario)
-    output = act()
-    list_of_agents = []
+#    output = act()
+    output={'agents':[]}
+    list_of_agents = [{'private_ip': '20.0.0.5', 'public_ip': '10.10.105.33', 'compute_node': 'pod10-node4', 'name': 'testvnf_ktaefo_slave_0'}, {'private_ip': '20.0.0.8', 'public_ip': '10.10.105.62', 'compute_node': 'pod10-node5', 'name': 'testvnf_ktaefo_master_0'}]
+#    list_of_agents = []
     #output = {'agents': {'testvnf_emtkia_slave_0': {'mode': 'slave', 'availability_zone': 'nova:pod10-node4', 'master': {
     #    'mode': 'master', 'availability_zone': 'nova:pod10-node5', 'slave_id': 'testvnf_emtkia_slave_0', 'zone': 'nova', 'node': 'pod10-node5',
     #    'pip': '10.10.105.51', 'id': 'testvnf_emtkia_master_0', 'ip': '10.0.0.16'}, 'zone': 'nova', 'node': 'pod10-node4', 'pip': '10.10.105.34',
@@ -670,8 +684,7 @@ def main():
         node = output['agents'][name]['node']
         list_of_agents.append({'name': name, 'private_ip': private_ip, 'public_ip': public_ip, 'compute_node': node})
     print(list_of_agents)
-
-    #create_vsperf_conffile(output, cfg.CONF.trafficgen)
+    create_vsperf_conffile(list_of_agents, cfg.CONF.trafficgen)
 
 if __name__ == "__main__":
     print("hello")
